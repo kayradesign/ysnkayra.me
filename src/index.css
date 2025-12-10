@@ -660,10 +660,6 @@
     display: inline-flex;
   }
 
-  .aspect-\[1000\/450\] {
-    aspect-ratio: 1000 / 450;
-  }
-
   .aspect-\[1920\/820\] {
     aspect-ratio: 1920 / 820;
   }

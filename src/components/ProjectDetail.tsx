@@ -109,25 +109,13 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className={`relative ${
-                project.title === "BLUESENSE" ? "aspect-[1000/450]" : 
-                project.title === "STILIST APP" ? "" : 
-                "aspect-video"
-              } rounded-lg overflow-hidden mb-16 ${project.title === "STILIST APP" ? "" : "border border-accent/20"}`}
+              className="relative aspect-video rounded-lg overflow-hidden mb-16 border border-accent/20"
             >
-              {project.title === "STILIST APP" ? (
-                <img
-                  src={imgStilistHeader}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <img
-                  src={project.title === "BLUESENSE" ? imgBluesenseHeader : project.title === "ALNIX AGRO" ? imgAlnixAgroHeader : project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
             </motion.div>
 
             {/* Detailed sections */}
@@ -223,7 +211,7 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
                         whileHover={{ scale: 1.02 }}
                       >
                         <img
-                          src={imgAlnixAgroSolutions}
+                          src={project.additionalImages[0]}
                           alt="Alnix Agro Solutions Overview"
                           className="w-full h-full object-contain"
                         />
