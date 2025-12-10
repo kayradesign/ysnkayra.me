@@ -7,17 +7,19 @@ function figmaAssetPlugin() {
     name: 'figma-asset-plugin',
     resolveId(id: string) {
       if (id.startsWith('figma:asset/')) {
-        return id;
+        // Return the id with a null byte prefix to mark it as external but handled
+        return '\0' + id;
       }
       return null;
     },
     load(id: string) {
-      if (id.startsWith('figma:asset/')) {
+      if (id.startsWith('\0figma:asset/')) {
         // Extract the hash from the import
-        const hash = id.replace('figma:asset/', '');
-        // Return a data URL or placeholder for local builds
-        // This prevents build errors while maintaining the import structure
-        return `export default "https://via.placeholder.com/1200x800/1a1a1a/A8E6A3?text=Asset"`;
+        const actualId = id.slice(1); // Remove the null byte
+        const hash = actualId.replace('figma:asset/', '');
+        // Return a module that exports the asset path
+        // In production, this will be the actual figma asset URL
+        return `export default "figma:asset/${hash}"`;
       }
       return null;
     }
@@ -30,6 +32,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src'
+    }
+  },
+  build: {
+    rollupOptions: {
+      external: []
     }
   }
 });
