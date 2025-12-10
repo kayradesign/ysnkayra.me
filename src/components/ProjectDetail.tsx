@@ -2,13 +2,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
 import type { Project } from './ProjectShowcase';
+import imgBluesenseHeader from "figma:asset/86030c7e18c17cdfcad0d1728f33e6319ea64b40.png";
+import imgAlnixAgroHeader from "figma:asset/c6983ced5dee907820c07d180a5e11309b79b08b.png";
+import imgStilistHeader from "figma:asset/5b4fb1be2a728aa5ea4f64a47d1cc49a2a2f0a67.png";
+import imgAlnixAgroSolutions from "figma:asset/c117c0e5142dc9171b0eeee027840dfd333c0444.png";
 import { ArrowUpRight } from 'lucide-react';
-
-// Placeholder images - replace with actual project images
-const imgBluesenseHeader = "https://images.unsplash.com/photo-1734120273696-596f96658db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMGFpJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NjM1NzYwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const imgAlnixAgroHeader = "https://images.unsplash.com/photo-1708794666324-85ad91989d20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyZSUyMGZhcm0lMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc2MzU3NjAzMnww&ixlib=rb-4.1.0&q=80&w=1080";
-const imgStilistHeader = "https://images.unsplash.com/photo-1675845929869-011079187b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9iaWxlJTIwYXBwfGVufDF8fHx8MTc2MzU3NjAzM3ww&ixlib=rb-4.1.0&q=80&w=1080";
-const imgAlnixAgroSolutions = "https://images.unsplash.com/photo-1708794666324-85ad91989d20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ3JpY3VsdHVyZSUyMGZhcm0lMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc2MzU3NjAzMnww&ixlib=rb-4.1.0&q=80&w=1080";
 
 interface ProjectDetailProps {
   project: Project;
